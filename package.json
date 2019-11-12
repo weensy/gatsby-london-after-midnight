@@ -1,0 +1,76 @@
+{
+  "name": "gatsby-london-after-midnight",
+  "private": true,
+  "description": "A custom, image-centric theme for Gatsby",
+  "version": "1.0.0",
+  "author": "Vaporwavy <i@ttv8.me>",
+  "bugs": {
+    "url": "https://github.com/vaporwavy/gatsby-london-after-midnight/issues"
+  },
+  "dependencies": {
+    "gatsby": "^2.4.2",
+    "gatsby-image": "^2.0.41",
+    "gatsby-plugin-feed": "^2.2.0",
+    "gatsby-plugin-google-analytics": "^2.0.19",
+    "gatsby-plugin-manifest": "^2.1.1",
+    "gatsby-plugin-netlify": "^2.0.17",
+    "gatsby-plugin-offline": "^2.1.0",
+    "gatsby-plugin-postcss": "^2.0.7",
+    "gatsby-plugin-purgecss": "^3.1.1",
+    "gatsby-plugin-react-helmet": "^3.0.12",
+    "gatsby-plugin-sharp": "^2.0.36",
+    "gatsby-remark-copy-linked-files": "^2.0.12",
+    "gatsby-remark-images": "^2.0.6",
+    "gatsby-remark-prismjs": "^3.3.20",
+    "gatsby-remark-responsive-iframe": "^2.1.1",
+    "gatsby-remark-smartypants": "^2.0.9",
+    "gatsby-source-filesystem": "^2.0.33",
+    "gatsby-transformer-remark": "^2.3.12",
+    "gatsby-transformer-sharp": "^2.1.19",
+    "prismjs": "^1.16.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-helmet": "^5.2.1",
+    "typeface-alegreya": "^0.0.69",
+    "typeface-merriweather": "0.0.72",
+    "typeface-montserrat": "0.0.54",
+    "typeface-nunito": "^0.0.72",
+    "url-join": "^4.0.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.5.1",
+    "husky": "^2.2.0",
+    "postcss-color-function": "^4.1.0",
+    "postcss-custom-properties": "^8.0.10",
+    "postcss-easy-import": "^3.0.0",
+    "prettier": "^1.17.0",
+    "pretty-quick": "^1.10.0"
+  },
+  "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
+  "keywords": [
+    "gatsby",
+    "ghost",
+    "gallery",
+    "blog",
+    "starter"
+  ],
+  "license": "MIT",
+  "main": "n/a",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vaporwavy/gatsby-dark-london.git"
+  },
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write src/**/*.{js,jsx}",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  }
+}
