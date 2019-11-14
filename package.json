@@ -3,7 +3,7 @@
   "private": true,
   "description": "A custom, image-centric theme for Gatsby",
   "version": "1.0.0",
-  "author": "Vaporwavy <i@ttv8.me>",
+  "author": "Vaporwavy <i@ttv8.me> (https://vaporwavy.io)",
   "bugs": {
     "url": "https://github.com/vaporwavy/gatsby-london-after-midnight/issues"
   },
@@ -58,7 +58,7 @@
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vaporwavy/gatsby-dark-london.git"
+    "url": "git+https://github.com/vaporwavy/gatsby-london-after-midnight.git"
   },
   "scripts": {
     "build": "gatsby build",
