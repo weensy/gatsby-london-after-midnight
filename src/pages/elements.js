@@ -14,8 +14,7 @@ const ElementsPage = ({ data }, location) => {
   return (
     <Layout title={siteTitle}>
       <SEO
-        title="All posts"
-        keywords={[`blog`, `gatsby`, `javascript`, `react`]}
+        title="Elements"
       />
 
       <article className="post-content page-template no-image">
@@ -366,15 +365,15 @@ const ElementsPage = ({ data }, location) => {
           <h2 id="code">Code</h2>
           <pre>
             <code>
-              i = 0;{"\n"}
-              {"\n"}while (!deck.isInOrder()) {"{"}
+              i = <span style={{color: "rgb(191,90,242)"}}>0</span>;{"\n"}
+              {"\n"}<span style={{color: "rgb(10,132,255)"}}>while</span> (!deck.<span style={{color: "rgb(255,214,10)"}}>isInOrder</span>()) {"{"}
               {"\n"}
-              {"    "}print 'Iteration ' + i;{"\n"}
-              {"    "}deck.shuffle();{"\n"}
+              {"    "}print <span style={{color: "rgb(50,215,75)"}}>'Iteration '</span> + i;{"\n"}
+              {"    "}deck.<span style={{color: "rgb(255,214,10)"}}>shuffle</span>();{"\n"}
               {"    "}i++;{"\n"}
               {"}"}
               {"\n"}
-              {"\n"}print 'It took ' + i + ' iterations to sort the deck.';
+              {"\n"}print <span style={{color: "rgb(50,215,75)"}}>'It took '</span> + i + <span style={{color: "rgb(50,215,75)"}}>' iterations to sort the deck.'</span>;
             </code>
           </pre>
           <h2 id="grid-system">Grid system</h2>
