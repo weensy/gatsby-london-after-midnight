@@ -18,7 +18,7 @@ A custom, image-centric theme for Gatsby. Made for publishers and portfolios wit
 
 **Based on [London](https://github.com/ImedAdel/gatsby-london) for Gatsby**
 
-**Demo: https://gatsby-lam.vaporwavy.io**
+**Demo: https://gatsby-lam.cxsmxs.com**
 
 ---
 
