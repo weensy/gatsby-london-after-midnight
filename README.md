@@ -1,14 +1,14 @@
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
   <a href="https://www.gatsbyjs.org">
-    <img alt="Gatsby" src="https://www.gatsbyjs.org/monogram.svg" width="80" />
+    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="80" />
   </a>
 </p>
 
 <h1 align="center">
   London After Midnight
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/vaporwavy/gatsby-london-after-midnight)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/weensykim/gatsby-london-after-midnight)
 
 </h1>
 
@@ -23,12 +23,13 @@ A custom, image-centric theme for Gatsby. Made for publishers and portfolios wit
 ---
 
 ### What is different from London?
-* Support Tag
-* Full Recoloring for Dark themes
-* Highlight Syntax with Prism.js
-* Support Korean and Japanese
-* Parameterize All Colors
-* Change the Format of Thumbnailless Postcards
+
+- Support Tag
+- Full Recoloring for Dark themes
+- Highlight Syntax with Prism.js
+- Support Korean and Japanese
+- Parameterize All Colors
+- Change the Format of Thumbnailless Postcards
 
 ---
 
@@ -42,7 +43,7 @@ _First time with Gatsby? Take a look on the [official and community-created star
 
     ```sh
     # create a new Gatsby site using the blog starter
-    npx gatsby new my-awesome-portfolio https://github.com/vaporwavy/gatsby-london-after-midnight
+    npx gatsby new my-awesome-portfolio https://github.com/weensykim/gatsby-london-after-midnight
     ```
 
 1.  **Start developing.**
