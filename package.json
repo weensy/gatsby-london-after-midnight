@@ -5,7 +5,7 @@
   "version": "1.0.2",
   "author": "weensykim <hello@weensy.co> (https://weensy.co)",
   "bugs": {
-    "url": "https://github.com/vaporwavy/gatsby-london-after-midnight/issues"
+    "url": "https://github.com/weensykim/gatsby-london-after-midnight/issues"
   },
   "dependencies": {
     "gatsby": "^2.32.13",
