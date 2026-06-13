@@ -12,7 +12,7 @@ exports.createPages = ({ graphql, actions }) => {
     `
       {
         allMarkdownRemark(
-          sort: { fields: [frontmatter___date], order: DESC }
+          sort: { frontmatter: { date: DESC } }
           limit: 1000
         ) {
           edges {
@@ -87,4 +87,26 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       value,
     })
   }
+}
+
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions
+  createTypes(`
+    type MarkdownRemark implements Node {
+      frontmatter: MarkdownRemarkFrontmatter
+      fields: MarkdownRemarkFields
+    }
+
+    type MarkdownRemarkFields {
+      slug: String
+    }
+
+    type MarkdownRemarkFrontmatter {
+      title: String
+      date: Date @dateformat
+      description: String
+      tags: [String]
+      thumbnail: File @fileByRelativePath
+    }
+  `)
 }

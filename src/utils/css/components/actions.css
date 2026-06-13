@@ -55,7 +55,7 @@
     width: 100%;
 }
 
-@media (max-width: var(--xsmall)) {
+@media (max-width: 480px) {
     .actions:not(.fixed) {
         flex-direction: column;
         margin-left: 0;

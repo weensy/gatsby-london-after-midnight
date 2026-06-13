@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql, StaticQuery } from "gatsby"
-import Img from "gatsby-image"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -22,9 +22,10 @@ const AboutPage = ({ data }, location) => {
             people who appreciate simple lines.
           </h2>
           <figure className="kg-card kg-image-card kg-width-full">
-            <Img
-              fluid={data.benchAccounting.childImageSharp.fluid}
+            <GatsbyImage
+              image={getImage(data.benchAccounting)}
               className="kg-image"
+              alt="Large imagery is at the heart of this theme"
             />
             <figcaption>Large imagery is at the heart of this theme</figcaption>
           </figure>
@@ -66,9 +67,12 @@ const indexQuery = graphql`
       relativePath: { eq: "bench-accounting-49909-unsplash.jpg" }
     ) {
       childImageSharp {
-        fluid(maxWidth: 1360) {
-          ...GatsbyImageSharpFluid
-        }
+        gatsbyImageData(
+          width: 1360
+          layout: CONSTRAINED
+          placeholder: BLURRED
+          formats: [AUTO, WEBP, AVIF]
+        )
       }
     }
   }

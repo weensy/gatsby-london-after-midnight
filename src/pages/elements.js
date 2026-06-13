@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql, StaticQuery } from "gatsby"
-import Img from "gatsby-image"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -136,23 +136,26 @@ const ElementsPage = ({ data }, location) => {
           <hr />
           <h2 id="images">Images</h2>
           <figure className="kg-card kg-image-card">
-            <Img
-              fluid={data.smallPic.childImageSharp.fluid}
+            <GatsbyImage
+              image={getImage(data.smallPic)}
               className="kg-image"
+              alt="Regular image example"
             />
             <figcaption>Regular image</figcaption>
           </figure>
           <figure className="kg-card kg-image-card kg-width-wide">
-            <Img
-              fluid={data.medPic.childImageSharp.fluid}
+            <GatsbyImage
+              image={getImage(data.medPic)}
               className="kg-image"
+              alt="Large image example"
             />
             <figcaption>Large image</figcaption>
           </figure>
           <figure className="kg-card kg-image-card kg-width-full">
-            <Img
-              fluid={data.largePic.childImageSharp.fluid}
+            <GatsbyImage
+              image={getImage(data.largePic)}
               className="kg-image"
+              alt="Full bleed image example"
             />
             <figcaption>Full bleed image</figcaption>
           </figure>
@@ -536,25 +539,34 @@ const indexQuery = graphql`
       relativePath: { eq: "fabio-comparelli-696506-unsplash.jpg" }
     ) {
       childImageSharp {
-        fluid(maxWidth: 1360) {
-          ...GatsbyImageSharpFluid
-        }
+        gatsbyImageData(
+          width: 1360
+          layout: CONSTRAINED
+          placeholder: BLURRED
+          formats: [AUTO, WEBP, AVIF]
+        )
       }
     }
     medPic: file(relativePath: { eq: "sophia-valkova-30139-unsplash.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 1360) {
-          ...GatsbyImageSharpFluid
-        }
+        gatsbyImageData(
+          width: 1360
+          layout: CONSTRAINED
+          placeholder: BLURRED
+          formats: [AUTO, WEBP, AVIF]
+        )
       }
     }
     largePic: file(
       relativePath: { eq: "vladimir-malyutin-98174-unsplash.jpg" }
     ) {
       childImageSharp {
-        fluid(maxWidth: 1360) {
-          ...GatsbyImageSharpFluid
-        }
+        gatsbyImageData(
+          width: 1360
+          layout: CONSTRAINED
+          placeholder: BLURRED
+          formats: [AUTO, WEBP, AVIF]
+        )
       }
     }
   }

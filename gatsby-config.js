@@ -52,37 +52,73 @@ module.exports = {
         ],
       },
     },
+    `gatsby-plugin-image`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-postcss`,
       options: {
         postCssPlugins: [
-          require("postcss-easy-import")(),
-          require("postcss-custom-properties")({ preserve: false }),
-          require("postcss-color-function")(),
-          require("autoprefixer")({ browsers: ["last 2 versions"] }),
+          require("postcss-import")(),
+          require("postcss-preset-env")({
+            stage: 3,
+            features: {
+              "custom-properties": { preserve: false },
+            },
+          }),
+          require("autoprefixer")(),
         ],
       },
     },
     {
-      resolve: `gatsby-plugin-purgecss`,
+      resolve: `gatsby-plugin-feed`,
       options: {
-        printRejected: true, // Print removed selectors and processed file names
-        develop: true, // Enable while using `gatsby develop`
-        // tailwind: true, // Enable tailwindcss support
-        // whitelist: ['whitelist'], // Don't remove this selector
-        ignore: ["/ignored.css", "prismjs/", "/prism.css", "docsearch.js/"], // Ignore files/folders
-        purgeOnly: ["components/", "/main.css", "bootstrap/"], // Purge only these files/folders
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allMarkdownRemark } }) =>
+              allMarkdownRemark.nodes.map(node => ({
+                title: node.frontmatter.title,
+                description: node.frontmatter.description || node.excerpt,
+                date: node.frontmatter.date,
+                url: urljoin(site.siteMetadata.siteUrl, node.fields.slug),
+                guid: urljoin(site.siteMetadata.siteUrl, node.fields.slug),
+                custom_elements: [{ "content:encoded": node.html }],
+              })),
+            query: `
+              {
+                allMarkdownRemark(sort: { frontmatter: { date: DESC } }) {
+                  nodes {
+                    excerpt
+                    html
+                    fields {
+                      slug
+                    }
+                    frontmatter {
+                      title
+                      date
+                      description
+                    }
+                  }
+                }
+              }
+            `,
+            output: "/rss.xml",
+            title: `${siteConfig.name} RSS Feed`,
+          },
+        ],
       },
     },
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: `yourID`,
-      },
-    },
-    `gatsby-plugin-feed`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -96,7 +132,6 @@ module.exports = {
       },
     },
     `gatsby-plugin-netlify`,
-    `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
   ],
 }

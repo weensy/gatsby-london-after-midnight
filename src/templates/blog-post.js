@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
-import Img from "gatsby-image"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -17,21 +17,23 @@ class BlogPostTemplate extends React.Component {
           description={post.frontmatter.description || post.excerpt}
         />
         <article
-          className={`post-content ${post.frontmatter.thumbnail || `no-image`}`}
+          className={`post-content ${
+            post.frontmatter.thumbnail ? `with-image` : `no-image`
+          }`}
         >
           <header className="post-content-header">
             <h1 className="post-content-title">{post.frontmatter.title}</h1>
           </header>
 
           {post.frontmatter.description && (
-            <p class="post-content-excerpt">{post.frontmatter.description}</p>
+            <p className="post-content-excerpt">{post.frontmatter.description}</p>
           )}
 
           {post.frontmatter.thumbnail && (
             <div className="post-content-image">
-              <Img
+              <GatsbyImage
                 className="kg-image"
-                fluid={post.frontmatter.thumbnail.childImageSharp.fluid}
+                image={getImage(post.frontmatter.thumbnail)}
                 alt={post.frontmatter.title}
               />
             </div>
@@ -74,9 +76,12 @@ export const pageQuery = graphql`
         description
         thumbnail {
           childImageSharp {
-            fluid(maxWidth: 1360) {
-              ...GatsbyImageSharpFluid
-            }
+            gatsbyImageData(
+              width: 1360
+              layout: CONSTRAINED
+              placeholder: BLURRED
+              formats: [AUTO, WEBP, AVIF]
+            )
           }
         }
       }

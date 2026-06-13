@@ -1,5 +1,5 @@
 import React from "react"
-import { Link } from "gatsby"
+import { Link, withPrefix } from "gatsby"
 
 const Layout = props => {
   const { title, children } = props
@@ -8,9 +8,9 @@ const Layout = props => {
     <div className={`site-wrapper ${toggleNav ? `site-head-open` : ``}`}>
       <header className="site-head">
         <div className="site-head-container">
-          <a
+          <button
             className="nav-burger"
-            href={`#`}
+            type="button"
             onClick={() => setToggleNav(!toggleNav)}
           >
             <div
@@ -23,8 +23,8 @@ const Layout = props => {
                 <div className="hamburger-inner" />
               </div>
             </div>
-          </a>
-          <nav id="swup" class="site-head-left">
+          </button>
+          <nav id="site-navigation" className="site-head-left">
             <ul className="nav" role="menu">
               {/* <li className="nav-home nav-current" role="menuitem">
                 <Link to={`/`}>Home</Link>
@@ -63,14 +63,14 @@ const Layout = props => {
               >
                 Twitter
               </a>
-              <Link
-                to={`/rss.xml`}
+              <a
+                href={withPrefix("/rss.xml")}
                 title="RSS"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 RSS
-              </Link>
+              </a>
               <a
                 href="https://github.com/vaporwavy/gatsby-london-after-midnight"
                 title="GitHub"

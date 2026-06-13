@@ -1,27 +1,29 @@
 import React, { Component } from "react";
 import { Link } from "gatsby"
+import { getSrc } from "gatsby-plugin-image"
 import Tags from "./tag"
 
-export default props => (
-  <article
-    className={`post-card ${props.count % 3 === 0 && `post-card-large`} ${
-      props.postClass
-    } ${props.node.frontmatter.thumbnail ? `with-image` : `no-image`}`}
-    style={
-      props.node.frontmatter.thumbnail && {
-        backgroundImage: `url(${
-          props.node.frontmatter.thumbnail.childImageSharp.fluid.src
-        })`,
+export default props => {
+  const thumbnail = props.node.frontmatter.thumbnail
+  const thumbnailSrc = thumbnail ? getSrc(thumbnail) : null
+
+  return (
+    <article
+      className={`post-card ${props.count % 3 === 0 ? `post-card-large` : ``} ${
+        props.postClass
+      } ${thumbnail ? `with-image` : `no-image`}`}
+      style={
+        thumbnailSrc
+          ? {
+              backgroundImage: `url(${thumbnailSrc})`,
+            }
+          : undefined
       }
-    }
-  >
-      {
-        props.node.frontmatter.thumbnail
-          ?(<ContentWithImage props={props}/>)
-          :(<ContentNoImage props={props}/>)
-      }
-  </article>
-)
+    >
+      {thumbnail ? <ContentWithImage props={props} /> : <ContentNoImage props={props} />}
+    </article>
+  )
+}
 
 class ContentNoImage extends Component {
   render() {
