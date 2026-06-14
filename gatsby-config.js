@@ -1,12 +1,14 @@
 const urljoin = require("url-join")
 const siteConfig = require("./siteConfig")
 
+const siteUrl = urljoin(siteConfig.url, siteConfig.prefix)
+
 module.exports = {
   siteMetadata: {
     title: siteConfig.name,
     author: siteConfig.author,
     description: siteConfig.description,
-    siteUrl: urljoin(siteConfig.url, siteConfig.prefix),
+    siteUrl,
     social: {
       twitter: siteConfig.twitter,
     },
@@ -115,6 +117,8 @@ module.exports = {
             `,
             output: "/rss.xml",
             title: `${siteConfig.name} RSS Feed`,
+            site_url: siteUrl,
+            feed_url: urljoin(siteUrl, "rss.xml"),
           },
         ],
       },
